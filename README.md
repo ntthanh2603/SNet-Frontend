@@ -1,153 +1,70 @@
-# SNet - Mạng Xã Hội Hiện Đại
+# Getting Started with Create React App
 
-SNet là một nền tảng mạng xã hội hiện đại được phát triển với mục tiêu kết nối mọi người một cách đơn giản, thân thiện và bảo mật. Dự án này tập trung vào trải nghiệm người dùng và các tính năng tương tác xã hội đa dạng.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 🌟 Tính Năng Chính
+## Available Scripts
 
-### 📱 Trang Chủ & Bảng Tin
-- Bảng tin cá nhân hóa dựa trên sở thích và kết nối của người dùng
-- Hỗ trợ các định dạng bài đăng phong phú: văn bản, hình ảnh, video, liên kết
-- Tính năng story 24h
-- Đề xuất kết bạn và nội dung phù hợp
+In the project directory, you can run:
 
-### 👥 Mạng Lưới & Kết Nối
-- Hệ thống bạn bè với các mức độ quyền riêng tư khác nhau
-- Nhóm công khai và riêng tư
-- Trang cá nhân tùy chỉnh
-- Theo dõi người dùng, trang và nhóm
+### `npm start`
 
-### 💬 Giao Tiếp
-- Tin nhắn riêng tư với khả năng end-to-end encryption
-- Chat nhóm với nhiều tính năng tương tác
-- Gọi video và audio
-- Chia sẻ file và media trong cuộc trò chuyện
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### 🔔 Thông Báo
-- Hệ thống thông báo thời gian thực
-- Tùy chỉnh loại thông báo nhận được
-- Thông báo push trên thiết bị di động
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### 🔎 Tìm Kiếm & Khám Phá
-- Tìm kiếm nâng cao với bộ lọc
-- Khám phá nội dung xu hướng
-- Đề xuất sự kiện gần bạn
+### `npm test`
 
-### 🛒 Marketplace
-- Mua bán sản phẩm giữa người dùng
-- Đánh giá và xếp hạng người bán
-- Thanh toán an toàn
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### 📊 Quản Lý Tài Khoản
-- Cài đặt bảo mật và quyền riêng tư mạnh mẽ
-- Quản lý dữ liệu cá nhân
-- Tùy chọn xác thực hai yếu tố
+### `npm run build`
 
-## 🛠️ Công Nghệ Sử Dụng
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- **Frontend**: React, Redux, TypeScript
-- **Style & UI**: Styled Components, Material UI
-- **State Management**: Redux Toolkit
-- **Routing**: React Router
-- **Networking**: Axios, Socket.io (real-time features)
-- **Testing**: Jest, React Testing Library
-- **Build Tools**: Webpack, Babel
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## 🚀 Cài Đặt & Chạy Dự Án
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Yêu Cầu Tiên Quyết
-- Node.js (v14 trở lên)
-- npm hoặc yarn
-- Git
+### `npm run eject`
 
-### Bước 1: Clone repository
-```bash
-git clone https://github.com/your-username/snet-frontend.git
-cd snet-frontend
-```
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### Bước 2: Cài đặt dependencies
-```bash
-npm install
-# hoặc
-yarn install
-```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Bước 3: Cấu hình biến môi trường
-Tạo file `.env` dựa trên file `.env.example`:
-```bash
-cp .env.example .env
-```
-Chỉnh sửa các biến môi trường phù hợp với môi trường của bạn.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### Bước 4: Chạy ứng dụng ở môi trường phát triển
-```bash
-npm start
-# hoặc
-yarn start
-```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-Ứng dụng sẽ chạy tại `http://localhost:3001`.
+## Learn More
 
-### Bước 5: Build cho môi trường production
-```bash
-npm run build
-# hoặc
-yarn build
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## 📁 Cấu Trúc Thư Mục
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```
-src/
-├── assets/         # Hình ảnh, font, và các tài nguyên tĩnh khác
-├── components/     # Các component React tái sử dụng
-│   ├── common/     # Các component dùng chung
-│   ├── feed/       # Components liên quan đến bảng tin
-│   ├── profile/    # Components cho trang cá nhân
-│   └── ...
-├── config/         # Cấu hình ứng dụng
-├── constants/      # Các hằng số
-├── hooks/          # Custom React hooks
-├── layouts/        # Layout components
-├── pages/          # Các trang hoàn chỉnh
-├── redux/          # Redux store, reducers, actions
-├── services/       # API calls và business logic
-├── styles/         # Global styles
-├── types/          # TypeScript type definitions
-├── utils/          # Các hàm tiện ích
-└── App.tsx         # Component gốc
-```
+### Code Splitting
 
-## 🔧 Scripts
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-- `npm start`: Khởi chạy ứng dụng ở môi trường phát triển
-- `npm test`: Chạy bộ test
-- `npm run build`: Build ứng dụng cho môi trường production
-- `npm run lint`: Kiểm tra và sửa lỗi code theo chuẩn
-- `npm run format`: Format code với Prettier
+### Analyzing the Bundle Size
 
-## 🤝 Đóng Góp
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-Chúng tôi rất hoan nghênh mọi đóng góp cho dự án SNet!
+### Making a Progressive Web App
 
-1. Fork repository
-2. Tạo branch mới (`git checkout -b feature/amazing-feature`)
-3. Commit thay đổi của bạn (`git commit -m 'Add some amazing feature'`)
-4. Push lên branch (`git push origin feature/amazing-feature`)
-5. Mở Pull Request
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Xem thêm trong [CONTRIBUTING.md](CONTRIBUTING.md).
+### Advanced Configuration
 
-## 📄 Giấy Phép
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-Dự án được phân phối dưới giấy phép MIT. Xem file [LICENSE](LICENSE) để biết thêm chi tiết.
+### Deployment
 
-## 📞 Liên Hệ
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-- Facebook: [tuanthanh2603](https://www.facebook.com/ntthanh2603)
-- Email: tuanthanh2kk4@gmail.com
-- GitHub: [tuanthanh2603](https://github.com/ntthanh2603)
+### `npm run build` fails to minify
 
----
-
-Made with ❤️ by Team SNet
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
