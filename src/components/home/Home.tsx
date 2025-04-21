@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import Footer from "../common/Footer.tsx";
+import Footer from "../common/Footer";
 
 const Home = () => {
   return (

@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const port = process.env.PORT_BACKEND;
-const host = process.env.HOST_BACKEND;
+const port = process.env.REACT_APP_PORT_BACKEND;
+const host = process.env.REACT_APP_HOST_BACKEND;
 
-const instance = axios.create({
+const axiosInstance = axios.create({
   baseURL: `http://${host}:${port}`,
   timeout: 10000,
   headers: {
@@ -12,8 +12,9 @@ const instance = axios.create({
 });
 
 // Request interceptor
-instance.interceptors.request.use(
+axiosInstance.interceptors.request.use(
   (config) => {
+    console.log(`url ${port}`);
     // Get token from localStorage
     const token = localStorage.getItem("token");
     if (token) {
@@ -27,7 +28,7 @@ instance.interceptors.request.use(
 );
 
 // Response interceptor
-instance.interceptors.response.use(
+axiosInstance.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -55,7 +56,7 @@ instance.interceptors.response.use(
   }
 );
 
-export default instance;
+export default axiosInstance;
 
 // Handle Refresh token
 // let isRefreshing = false;
