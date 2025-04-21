@@ -6,11 +6,11 @@ import Footer from "./Footer.tsx";
 const AppLayout = () => {
   return (
     <div className="app-container">
-      <Header />
+      {/* <Header /> */}
       <main className="content">
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import AppLayout from "../components/common/AppLayout";
-import Home from "../components/home/Home";
-import PublicRoute from "./PublicRoute";
-import PrivateRoute from "./PrivateRoute";
-import UserRoutes from "./UserRoutes";
-import Login from "../components/auth/Login";
+import AppLayout from "../components/common/AppLayout.tsx";
+import Home from "../components/home/Home.tsx";
+import PublicRoute from "./PublicRoute.tsx";
+import PrivateRoute from "./PrivateRoute.tsx";
+import Login from "../components/auth/Login.tsx";
 import React from "react";
+import UserSettings from "../components/user/UserSettings.tsx";
 
 const Router = () => {
   return (
@@ -15,14 +15,24 @@ const Router = () => {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
 
-          <Route path="auth" element={<PublicRoute />}>
-            <Route path="login" element={<Login />} />
-          </Route>
+          <Route
+            path="login"
+            element={
+              <PublicRoute restricted={true}>
+                <Login />
+              </PublicRoute>
+            }
+          />
 
           {/* Private routes */}
-          <Route path="user" element={<PrivateRoute />}>
-            <UserRoutes />
-          </Route>
+          <Route
+            path="user/settings"
+            element={
+              <PrivateRoute>
+                <UserSettings />
+              </PrivateRoute>
+            }
+          />
 
           {/* Fallback route */}
           <Route path="*" element={<Navigate to="/" replace />} />

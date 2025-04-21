@@ -1,11 +1,11 @@
 import { Navigate } from "react-router-dom";
 import React from "react";
-import { isAuthenticated } from "../utils/auth";
+import { isAuthenticated } from "../utils/auth.ts";
 
 const PublicRoute = ({ children, restricted }) => {
   const isAuth = isAuthenticated();
   // restricted = true nghĩa là không cho phép người đã đăng nhập truy cập (ví dụ: trang login)
-  return isAuth && restricted ? <Navigate to="/dashboard" /> : children;
+  return isAuth && restricted ? <Navigate to="/" /> : children;
 };
 
 export default PublicRoute;

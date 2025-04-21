@@ -1,0 +1,115 @@
+.login-bg {
+  background: var(--background-color);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-logo {
+  color: var(--text-color-logo);
+  font-size: 56px;
+  font-weight: bold;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+}
+
+.login-form {
+  background: var(--background-color-secondary);
+  padding: 32px 24px 24px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.login-form h2 {
+  font-size: 20px;
+  font-weight: 540;
+  margin-bottom: 24px;
+  margin-top: 0px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-color-secondary);
+}
+
+.login-input {
+  padding: 15px;
+  margin-bottom: 12px;
+  border: 2px solid var(--background-color);
+  border-radius: 6px;
+  font-size: 17px;
+  background: var(--background-color-secondary);
+}
+
+.login-btn {
+  background: #1877f2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-btn:hover {
+  background: #166fe5;
+}
+
+.login-forgot {
+  color: var(--text-color-logo);
+  background-color: var(--background-color-secondary);
+  text-align: center;
+  font-size: 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.login-divider {
+  background-color: var(--background-color-secondary);
+  display: flex;
+  align-items: center;
+  margin: 12px 0 12px 0;
+}
+
+.login-divider span {
+  background-color: var(--background-color-secondary);
+  flex: 1;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  position: relative;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #dddfe2;
+  margin: 0 8px;
+}
+
+.login-create-btn {
+  background: #42b72a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-create-btn:hover {
+  background: #36a420;
+}

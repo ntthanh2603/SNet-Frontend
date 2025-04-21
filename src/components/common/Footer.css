@@ -1,0 +1,35 @@
+.footer {
+  padding: 16px 0;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px 0;
+  gap: 24px;
+  font-size: 15px;
+}
+
+.footer-nav li {
+  display: inline;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #df0e0e;
+}
+
+.footer-group {
+  color: #888;
+  font-size: 12px;
+}
