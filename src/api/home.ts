@@ -1,8 +1,8 @@
-import axiosInstance from "./axiosInstance";
+import axiosInstances from "./axiosInstance";
 
 const home = {
   getHome: () => {
-    return axiosInstance.get("/api/home");
+    return axiosInstances.get("/api/home");
   },
 };
 

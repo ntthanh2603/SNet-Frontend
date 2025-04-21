@@ -114,3 +114,7 @@
 .login-create-btn:hover {
   background: #36a420;
 }
+
+.login-error {
+  background-color: var(--background-color-secondary);
+}
