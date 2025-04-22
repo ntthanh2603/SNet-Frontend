@@ -12,13 +12,10 @@ const Router = () => {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
 
-          {/* Auth routes */}
           {AuthRouter()}
 
-          {/* User routes */}
           {UserRouter()}
 
-          {/* Fallback route */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

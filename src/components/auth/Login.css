@@ -116,5 +116,12 @@
 }
 
 .login-error {
-  background-color: var(--background-color-secondary);
+  color: #d93025;
+  background: #fff0f0;
+  border: 1px solid #ffd6d6;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 15px;
 }

@@ -1,21 +1,35 @@
+import cleanObject from "lib/cleanObject";
 import userApi from "../api/userApi";
 
 const userService = {
   sendOtpLogin: async (email: string, password: string) => {
-    try {
-      const fetch = await userApi.sendOtp({ email, password });
-      return fetch;
-    } catch (err) {
-      console.log(err);
-    }
+    const fetch = await userApi.sendOtpLogin({ email, password });
+    return fetch;
   },
   verifyOtpLogin: (email: string, password: string, otp: string) => {
-    try {
-      const fetch = userApi.verifyOtp({ email, password, otp });
-      return fetch;
-    } catch (err) {
-      console.log(err);
-    }
+    const fetch = userApi.verifyOtpLogin({ email, password, otp });
+    return fetch;
+  },
+
+  sendOtpRegister: async (email: string, username: string) => {
+    const fetch = await userApi.sendOtpRegister({ email, username });
+    return fetch;
+  },
+
+  verifyOtpRegister: async (data: {
+    email: string;
+    password: string;
+    otp: string;
+    username: string;
+    bio: string;
+    website: string;
+    birthday: string;
+    gender: string;
+    address: string;
+  }) => {
+    const formData = cleanObject(data);
+    const fetch = await userApi.verifyOtpRegister(formData);
+    return fetch;
   },
 };
 

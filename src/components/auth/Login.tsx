@@ -4,7 +4,7 @@ import Footer from "../common/Footer";
 import React, { useState } from "react";
 import userService from "../../services/userService";
 
-const SendOtpLogin = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
@@ -88,7 +88,7 @@ const SendOtpLogin = () => {
         )}
         {error && <div className="login-error">{error}</div>}
         <button className="login-btn" type="submit" disabled={loading}>
-          {loading ? "Đang gửi..." : showOtp ? "Xác thực OTP" : "Đăng nhập"}
+          {loading ? "Đang gửi..." : showOtp ? "Đăng nhập" : "Gửi OTP"}
         </button>
         {!showOtp && (
           <>
@@ -109,4 +109,4 @@ const SendOtpLogin = () => {
   );
 };
 
-export { SendOtpLogin };
+export default Login;

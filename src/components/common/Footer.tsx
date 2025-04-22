@@ -4,8 +4,8 @@ import "./Footer.css";
 
 const links = [
   { to: "/", label: "Trang chủ" },
-  { to: "/users/otp/send/login", label: "Đăng nhập" },
-  { to: "/register", label: "Đăng ký" },
+  { to: "/login", label: "Đăng nhập" },
+  { to: "/signup", label: "Đăng ký" },
   { to: "/messager", label: "Tin nhắn" },
   { to: "/policy", label: "Chính sách" },
   { to: "/recruitment", label: "Tuyển dụng" },
