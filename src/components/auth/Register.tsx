@@ -105,7 +105,6 @@ const Register = () => {
           disabled={showOtp}
           required
         />
-
         <input
           type="password"
           placeholder="Nhập lại mật khẩu*"
@@ -115,7 +114,6 @@ const Register = () => {
           disabled={showOtp}
           required
         />
-
         <input
           type="text"
           placeholder="Tên người dùng*"
@@ -142,7 +140,7 @@ const Register = () => {
           onChange={(e) => setWebsite(e.target.value)}
         />
         <input
-          type="datetime-local"
+          type="date"
           placeholder="Ngày sinh"
           className="register-input"
           value={birthday}
@@ -168,7 +166,6 @@ const Register = () => {
           disabled={showOtp}
           onChange={(e) => setAddress(e.target.value)}
         />
-
         {showOtp && (
           <>
             <input
