@@ -6,18 +6,16 @@ import UserProfile from "../components/user/UserProfile";
 
 const UserRouter = () => (
   <>
-    {/* Settings */}
     <Route
-      path="user/settings"
+      path="settings"
       element={
         <PrivateRoute>
           <UserSettings />
         </PrivateRoute>
       }
     />
-    {/* Profile */}
     <Route
-      path="user/profile"
+      path="profile"
       element={
         <PrivateRoute>
           <UserProfile />

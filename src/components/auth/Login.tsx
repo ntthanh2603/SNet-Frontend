@@ -38,8 +38,6 @@ const Login = () => {
       try {
         const res = await userService.verifyOtpLogin(email, password, otp);
 
-        console.log(`res data: ${JSON.stringify(res.data)}`);
-
         if (res.data?.statusCode === 200) {
           // Save accessToken in localStorage
           if (res.data?.data?.accessToken) {
@@ -92,7 +90,7 @@ const Login = () => {
         </button>
         {!showOtp && (
           <>
-            <Link to="login-forgot" className="login-forgot">
+            <Link to="/forgot-password" className="login-forgot">
               Bạn quên mật khẩu ư?
             </Link>
             <div className="login-divider">
