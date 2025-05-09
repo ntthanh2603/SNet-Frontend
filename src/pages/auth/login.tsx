@@ -172,7 +172,9 @@ export default function Login() {
         <div className="hidden md:flex md:flex-col md:gap-6 md:justify-center md:items-center">
           <Typography className="text-tertiary opacity-80 ">
             Số người tham gia
-            <Typography className="font-bold text-primary mx-1">2M</Typography>
+            <Typography className="font-bold text-primary mx-1">
+              2 triệu
+            </Typography>
             người dùng toàn cầu
           </Typography>
 
