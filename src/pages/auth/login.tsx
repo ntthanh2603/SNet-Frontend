@@ -61,8 +61,6 @@ export default function Login() {
           otp,
         });
 
-        console.log('response', response);
-
         if (response.data.statusCode === 200) {
           localStorage.setItem('accessToken', response.data.data.accessToken);
           alert('Đăng nhập thành công');
