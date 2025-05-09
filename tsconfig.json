@@ -1,9 +1,7 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "baseUrl": "./src",
-    "jsx": "react",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  }
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
 }

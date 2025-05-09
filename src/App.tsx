@@ -1,14 +1,11 @@
-import React from "react";
-import "./App.css";
-import Router from "./routes/Router";
-import { AuthProvider } from "./states/AuthContext";
+import AppRouter from '@routers/app-router';
 
-const App = () => {
+// ----------------------------------------------------------------------
+
+export default function App() {
   return (
-    <AuthProvider>
-      <Router />
-    </AuthProvider>
+    <>
+      <AppRouter />
+    </>
   );
-};
-
-export default App;
+}
