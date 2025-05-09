@@ -6,12 +6,16 @@ import styled from '@styles/auth.module.css';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Input } from './components';
+import axiosInstance from '@lib/axiosInstace';
 
 //----------------------------------------------------------------------
 
 export default function Login() {
-  const [email, setEmail] = React.useState('edu@200lab.io');
-  const [password, setPassword] = React.useState('edu@200lab');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [otp, setOtp] = React.useState('');
+  const [showOtp, setShowOtp] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
 
   const isValidEmail = (email: any) => {
@@ -19,14 +23,56 @@ export default function Login() {
     return emailRegex.test(email);
   };
 
-  const isBtnEnable = password !== '' && isValidEmail(email);
+  const isBtnEnable = !showOtp
+    ? password !== '' && isValidEmail(email)
+    : password !== '' && isValidEmail(email) && otp !== '';
 
-  const handleLogin = (e: any) => {
+  const handleSendOTP = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email === 'edu@200lab.io' && password === 'edu@200lab') {
-      navigate('/');
-    } else {
-      alert('Thông tin đăng nhập không chính xác');
+    setLoading(true);
+    try {
+      const response = await axiosInstance.post('/users/send-otp/login', {
+        email,
+        password,
+      });
+
+      if (response.data.statusCode === 201) {
+        setShowOtp(true);
+      } else {
+        alert('Không thể gửi OTP');
+      }
+    } catch (error) {
+      alert('Không thể gửi OTP');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      if (!showOtp) {
+        await handleSendOTP(e);
+      } else {
+        const response = await axiosInstance.post('/users/verify-otp/login', {
+          email,
+          password,
+          otp,
+        });
+
+        console.log('response', response);
+
+        if (response.data.statusCode === 200) {
+          localStorage.setItem('accessToken', response.data.data.accessToken);
+          alert('Đăng nhập thành công');
+          navigate('/');
+        }
+      }
+    } catch (error) {
+      alert('Mã OTP không chính xác hoặc đã hết hạn');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -40,7 +86,7 @@ export default function Login() {
               <img src="/svg/circle_logo.svg" alt="Bento Logo" />
             </CircleButton>
             <Typography level="h4" className="text-primary">
-              Sign in to Bento
+              {showOtp ? 'Nhập OTP' : 'Đăng nhập vào SNet'}
             </Typography>
           </div>
           <form onSubmit={handleLogin}>
@@ -51,13 +97,15 @@ export default function Login() {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={showOtp}
               />
               <Input
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder="Mật khẩu"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                disabled={showOtp}
                 icon={
                   <object
                     type="image/svg+xml"
@@ -66,14 +114,31 @@ export default function Login() {
                   />
                 }
               />
+              {showOtp && (
+                <Input
+                  type="text"
+                  name="otp"
+                  placeholder="Enter OTP"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                />
+              )}
             </div>
 
             <div className="flex flex-col gap-3">
               <Button
                 type="submit"
                 className="w-full base px-[2rem] py-[0.875rem] text-secondary text-sm font-semibold opacity-100"
-                child={<Typography level="base2sm">Sign In</Typography>}
-                disabled={!isBtnEnable}
+                child={
+                  <Typography level="base2sm">
+                    {loading
+                      ? 'Đang xử lý ...'
+                      : showOtp
+                        ? 'Đăng nhâp'
+                        : 'Gửi OTP'}
+                  </Typography>
+                }
+                disabled={!isBtnEnable || loading}
               />
 
               <Button
@@ -86,7 +151,7 @@ export default function Login() {
                       className="w-5 h-5"
                     />
                     <Typography level="base2sm" className="text-secondary">
-                      Sign in with Google
+                      Đăng nhập với Google
                     </Typography>
                   </div>
                 }
@@ -96,10 +161,10 @@ export default function Login() {
                 level="captionr"
                 className="opacity-80 flex items-center gap-2 text-secondary justify-center"
               >
-                Don't have an account?
+                Bạn đã có tài khoản?
                 <a href="/register" className="opacity-100 font-semibold">
                   <Typography level="captionsm" className="opacity-100">
-                    Sign up, it's free!
+                    Tạo tài khoản!
                   </Typography>
                 </a>
               </Typography>
@@ -108,9 +173,9 @@ export default function Login() {
         </div>
         <div className="hidden md:flex md:flex-col md:gap-6 md:justify-center md:items-center">
           <Typography className="text-tertiary opacity-80 ">
-            Join over
+            Số người tham gia
             <Typography className="font-bold text-primary mx-1">2M</Typography>
-            global social media users
+            người dùng toàn cầu
           </Typography>
 
           <AvatarGroup
