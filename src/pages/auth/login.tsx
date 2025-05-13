@@ -74,6 +74,10 @@ export default function Login() {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    window.location.href = 'http://localhost:3000/users/google/login';
+  };
+
   return (
     <>
       <div className="bg-auth w-full h-svh flex flex-col justify-around items-center px-[2.5rem]">
@@ -153,6 +157,7 @@ export default function Login() {
                     </Typography>
                   </div>
                 }
+                onClick={handleGoogleLogin}
               />
 
               <Typography

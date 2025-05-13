@@ -7,7 +7,7 @@ import MobileSidebarTrigger from '@components/sidebar-trigger/mobile-sidebar-tri
 import ToggleGroup from '@components/toggle-group/toggle-group';
 import type { Post as typePost } from '@interfaces/post';
 import eventBus from '@utils/event-emitter';
-import React from 'react';
+import React, { useEffect } from 'react';
 import CreatPost from './creat-post';
 import { Avatar } from '@components/avatar';
 import { SearchBar } from '@components/search';
@@ -41,6 +41,18 @@ export default function Home() {
     setIsSidebarShow(!isSidebarShow);
     eventBus.emit('isShowSidebar', !isSidebarShow);
   };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const accessToken = urlParams.get('accessToken');
+
+    console.log('accessToken', accessToken);
+    if (accessToken) {
+      localStorage.setItem('accessToken', accessToken);
+
+      window.location.href = 'http://localhost:5173/';
+    }
+  }, []);
 
   return (
     <>
